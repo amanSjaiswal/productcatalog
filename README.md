@@ -79,20 +79,7 @@ npm run dev
 
 ---
 
-## Troubleshooting
 
-- If you encounter `500` errors with messages like `Could not write JSON` or `ConcurrentModificationException`, check backend logs. This usually means Jackson is failing to serialize a bidirectional JPA relationship.
-  - Quick server-side fixes: add `@JsonIgnore` to the back-reference field, or use `@JsonManagedReference` / `@JsonBackReference`.
-  - Recommended: map entities to DTOs in the service layer and return DTOs to the client.
-- If you see CORS issues in the browser, either enable appropriate CORS settings in the backend or configure a Vite proxy in `vite.config.js`:
-
-```js
-server: {
-  proxy: { '/api': 'http://localhost:8080' }
-}
-```
-
----
 
 ## Screenshots
 
@@ -113,35 +100,7 @@ To capture screenshots:
 
 ---
 
-## Git & GitHub — quick guide
 
-1. Install Git: https://git-scm.com/download/win
-2. Configure Git if not already:
-
-```powershell
-git config --global user.name "Your Name"
-git config --global user.email "you@example.com"
-```
-
-3. Create a GitHub repo and push the project (example using GitHub CLI `gh`):
-
-```powershell
-gh auth login
-cd "C:\Users\Admin\Downloads\productcatalog"
-gh repo create your-username/productcatalog --public --source=. --remote=origin
-git push -u origin main
-```
-
-Or manual flow:
-
-```powershell
-git init
-git checkout -b main
-git add .
-git commit -m "Initial commit: productcatalog backend + react frontend"
-git remote add origin https://github.com/your-username/productcatalog.git
-git push -u origin main
-```
 
 **Security note:** Do not commit `application.properties` with real passwords. Use `application.properties.example` and keep real credentials local or in environment variables.
 
